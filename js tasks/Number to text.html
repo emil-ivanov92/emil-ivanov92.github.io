@@ -1,0 +1,67 @@
+﻿<html>
+	<head>
+		<title>JS Numbers to text</title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+
+			var unitсNames = ["", "едно", "две", "три", "четири", "пет", "шест", "седем", "осем", "девет"];
+			var tenthsNames = ["", "десет", "двадесет", "тридесет", "четиридесет", "петдесет", "шестдесет", "седемдесет", "осемдесет", "деветдесет"];
+			var hundredsNames = ["", "сто", "двеста", "триста", "четиристотин", "петстотин", "шестстотин", "седемстотин", "осемстотин", "деветстотин"];
+			var numbers = ["", "единадесет", "дванадесет", "тринадесет", "четиринадесет", "петнадесет", "шестнадесет", "седемнадесет", "осемнадесет", "деветнадесет"];
+			var hundreds;
+			var remainderOfHundreds;
+			var tenths;
+			var units;
+			var input;
+
+			do { 
+				input = prompt("Enter a number between 0 and 999 :");
+			} 
+			while ((isNaN(input) != false) || (input <= -1) || (input > 999) || (input) == "" || (input == null));
+
+			if (input == "0") { 
+				alert ("нула");
+			} 
+			else if (input <= 9) { 
+				alert (unitсNames[input]);
+			} 
+			else if (input == 10) { 
+				alert("десет");
+			} 
+			else { 
+				hundreds = parseInt(input / 100);
+				remainderOfHundreds = parseInt(input % 100);
+
+				tenths = parseInt(remainderOfHundreds / 10);
+				units = parseInt(remainderOfHundreds % 10);
+
+				if ((units == 0) && (tenths == 0)) { 
+					alert(hundredsNames[hundreds]);
+				} 
+				else if ((units == 0) && (hundreds != 0)) { 
+					alert(hundredsNames[hundreds] + " и " + tenthsNames[tenths]);
+				} 
+				else if ((hundreds == 0) && (tenths == 1)) { 
+					alert(numbers[units]);
+				} 
+				else if ((hundreds == 0) && (units == 0)) { 
+					alert(tenthsNames[tenths]);
+				} 
+				else if (tenths == 1) { 
+					alert(hundredsNames[hundreds] + " и " + numbers[units]);
+				} 
+				else if (tenths == 0) { 
+					alert(hundredsNames[hundreds] + " и " + unitсNames[units]);
+				} 
+				else { 
+					alert(hundredsNames[hundreds] + " " + tenthsNames[tenths] + " и " + unitсNames [units]);
+				} 
+			} 
+
+		</script>
+
+	</body>
+</html>

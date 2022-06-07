@@ -1,0 +1,21 @@
+button {
+	padding: 2% 3%;
+	margin: 3% auto;
+	font-weight: bold;
+	display: block;
+}
+
+table {
+	margin: 3% auto;
+}
+
+table td, th {
+	text-align: center;
+	padding: 1%;
+}
+
+th {
+	background-color: #bdbebf;
+	vertical-align: middle;
+}
+		

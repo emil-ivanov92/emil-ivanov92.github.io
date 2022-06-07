@@ -1,0 +1,147 @@
+﻿<html>
+	<head>
+		<title>JS Spiral Matrix</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var input;
+			var starterLoop;
+			var arrayWithNumbers;
+			var arrayWithNumbers2D = [];
+
+			do { 
+				input = Number(prompt("What a number between 0 and 99:"));
+			} 
+			while ((isNaN(input) != false) || (input <= 0) || (input >= 100) || (input % 1 != 0));
+
+			arrayWithNumbers = new Array(input * input);
+
+			while(arrayWithNumbers.length) { 
+				arrayWithNumbers2D.push(arrayWithNumbers.splice(0, input));
+			} 
+
+			var maximumIteration = input * input;
+			var direction = "";
+			var row = 0;
+			var column = 0;
+			var numberToAdd = 1;
+			var borderOfMatrix = input - 1;
+			var boolNotBorder = false;
+
+			for (starterLoop = 0; starterLoop < maximumIteration; starterLoop++) { 
+
+				arrayWithNumbers2D[row][column] = numberToAdd;
+
+				if (boolNotBorder == false) { 
+					if ((column == borderOfMatrix) && (row != borderOfMatrix)) { 
+						direction = "down";
+					} 
+					else if ((column == borderOfMatrix) && (row == borderOfMatrix)) { 
+						direction = "left";
+					} 
+					else if ((row == borderOfMatrix) && (column == 0)) { 
+						direction = "up";
+					} 
+					else if ((row == 0) && (column != borderOfMatrix)) { 
+						direction = "right";
+					} 
+				} 
+
+				if (direction == "right") { 
+					column++;
+
+					if (arrayWithNumbers2D[row][column] != null) { 
+						direction = "down";
+						boolNotBorder = true;
+						column--;
+						row++;
+					} 
+				} 
+				else if (direction == "down") { 
+					row++;
+
+					if (arrayWithNumbers2D[row][column] != null) { 
+						direction = "left";
+						boolNotBorder = true;
+						row--;
+						column--;
+					} 
+				} 
+				else if (direction == "left") { 
+					column--;
+
+					if (arrayWithNumbers2D[row][column] != null) { 
+						direction = "up";
+						boolNotBorder = true;
+						column++;
+						row--;
+					} 
+				} 
+				else if (direction == "up") { 
+					row--;
+
+					if (arrayWithNumbers2D[row][column] != null) { 
+						direction = "right";
+						boolNotBorder = true;
+						row++;
+						column++;
+					} 
+				} 
+
+			numberToAdd++;
+
+			} 
+
+			//printing array in table
+			var heading;
+			var table;
+			var rowInTable;
+			var tableRow;
+			var columnInTable;
+			var tableData;
+
+			heading = document.createElement("h1");
+			heading.innerHTML = "JS Spiral Matrix - table view";
+
+			table = document.createElement("table");
+			table.setAttribute("border", "1");
+			table.style.borderCollapse = "collapse";
+			table.style.width = "50%";
+			table.style.border = "2px solid black";
+			table.style.borderWidth = "1px 1px"
+			table.style.textAlign = "center";
+
+			for (rowInTable = 0; rowInTable < input; rowInTable++) { 
+				tableRow = document.createElement("tr");
+
+				if (rowInTable % 2 == 1) { 
+					tableRow.style.background =  "#f7f6f2";
+				} 
+
+				for (columnInTable = 0; columnInTable < input; columnInTable++) { 
+					tableData = document.createElement("td");
+					tableData.style.border = "2px solid black";
+					tableData.style.borderWidth = "1px 1px";
+
+					tableData.style.borderWidth = "1.2px";
+					if (columnInTable % 2 == 0) { 
+						tableData.style.background = "#e5e5e0";
+					} 
+
+					tableData.innerHTML = arrayWithNumbers2D[rowInTable][columnInTable];
+					tableRow.appendChild(tableData);
+				}; 
+
+			table.appendChild(tableRow);
+
+			} 
+
+			document.body.appendChild(heading);
+			document.body.appendChild(table);
+
+		</script>
+
+	</body>
+</html>

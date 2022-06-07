@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" />
+
+    <head>
+
+        <title>Poll Form</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Poll with cool visual effects" />
+        <meta name="keywords" content="HTML, CSS, JS, PHP, AJAX, ExtJS, JQuery, Chart, Poll" />
+        <meta name="author" content="Emil Ivanov" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <script src="http://www.hdcharts.com/lib/HDCharts/Pie/PieChart-min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/packages/charts/classic/charts.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/packages/charts/classic/classic/resources/charts-all.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+    </head>
+
+
+    <body>
+
+        <div id="poll">
+            <h3>Do you like JS?</h3>
+            <form>
+                Yes:
+                <input type="radio" name="vote" value="0" onclick="Poll_Namespaces.getVote(this.value)">
+                <br />No:
+                <input type="radio" name="vote" value="1" onclick="Poll_Namespaces.getVote(this.value)">
+            </form>
+        </div>
+
+        <div id = "pie_chart"></div>
+        <div id = "pie_chart2"></div>
+
+    </body>
+
+</html>

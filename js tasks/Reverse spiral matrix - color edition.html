@@ -1,0 +1,105 @@
+﻿<html>
+	<head>
+		<title>Reverse Spiral Matrix</title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+
+			var input;
+			var arrayWithNumbers = [];
+			var arrayWithNumbers2D = [];
+			var starterLoopFor;
+			var indexControlFor = 0;
+			var arrayWithIndex = [];
+			var arrayForTableFill = [];
+			var numberSequence = 1;
+
+			do { 
+				input = parseInt(prompt("Enter a number between 1 and 99:"));
+			} 
+			while ((isNaN(input) != false) || (input <= 0) || (input >= 100) || (input % 1 != 0));
+
+			//create an array with numbers
+			for (starterLoopFor = 1; starterLoopFor <= input * input; starterLoopFor++) { 
+				arrayWithNumbers.push(starterLoopFor);
+			} 
+
+			//convert from 1D to 2D array
+			while (arrayWithNumbers.length) arrayWithNumbers2D.push(arrayWithNumbers.splice(0, input));
+
+			do { 
+				//first column up do down
+				for (starterLoopFor = 0; starterLoopFor < input - indexControlFor - indexControlFor; starterLoopFor++) { 
+					arrayWithIndex.push(arrayWithNumbers2D[starterLoopFor + indexControlFor] [indexControlFor]);
+				} 
+				//last column left to right
+				for (starterLoopFor = 1 + indexControlFor; starterLoopFor < input - indexControlFor; starterLoopFor++) { 
+					arrayWithIndex.push(arrayWithNumbers2D [(input - 1) - indexControlFor] [starterLoopFor]);
+				} 
+				//last column down to up
+				for (starterLoopFor = input - 2 - indexControlFor; starterLoopFor >= indexControlFor; starterLoopFor--) { 
+					arrayWithIndex.push(arrayWithNumbers2D [starterLoopFor - indexControlFor + indexControlFor] [(input - 1) - indexControlFor]);
+				} 
+				//first row right to left
+				for (starterLoopFor = input - 2 - indexControlFor; starterLoopFor >= 1 + indexControlFor; starterLoopFor--) { 
+					arrayWithIndex.push(arrayWithNumbers2D[indexControlFor][starterLoopFor]);
+				} 
+
+				indexControlFor++;
+			} 
+			while (indexControlFor < input / 2);
+
+			//filling array with numbers
+			for (starterLoopFor = 0; starterLoopFor < arrayWithIndex.length; starterLoopFor++) { 
+				arrayForTableFill[(arrayWithIndex[starterLoopFor].valueOf()) - 1 ] = numberSequence;
+				numberSequence++;
+			} 
+
+			//printing array in table
+			var heading;
+			var table;
+			var indexToAddInArray = 0;
+			var rowOfTable;
+			var tableRow;
+			var columnOfTable;
+			var tableData;
+			var color;
+
+			heading = document.createElement("h1");
+			heading.innerHTML = "Reverse Spiral Matrix - table view, random color edition";
+
+			table = document.createElement("table");
+			table.setAttribute("border", "1");
+			table.style.borderCollapse = "collapse";
+			table.style.width = "50%";
+			table.style.textAlign = "center";
+			table.style.fontWeight = "bold";
+			table.style.borderWidth = "3px";
+
+			for (rowOfTable = 0; rowOfTable < input; rowOfTable++) { 
+				tableRow = document.createElement("tr");
+
+				for (columnOfTable = 0; columnOfTable < input; columnOfTable++) { 
+					tableData = document.createElement("td");
+					tableData.style.border = "2px solid black";
+					tableData.style.borderWidth = "1px 1px";
+					tableData.innerHTML = arrayForTableFill[indexToAddInArray].toString();
+					color = "#ff" + Math.floor(Math.random()*10) + "" + Math.floor(Math.random()*10) + "" + Math.floor(Math.random()*10) + "f";
+					tableData.style.backgroundColor = color;
+					tableData.style.borderWidth = "2px";
+					tableRow.appendChild(tableData);
+					indexToAddInArray++;
+				}; 
+
+				table.appendChild(tableRow);
+			} 
+
+			document.body.appendChild(heading);
+			document.body.appendChild(table);
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,125 @@
+﻿<html>
+	<head>
+		<title>JS Diadonal Matrix</title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+
+			var input;
+			do { 
+				input = parseInt(prompt("Enter a number between 2 and 99"));
+			} 
+			while ((isNaN(input) != false) || (input <= 1) || (input >= 100) || (input % 1 != 0));
+
+			var arrayWithNumbers = [];
+			var starterLoop;
+			var consecutiveNumbers = 1;
+			var borderOfMatrix = input - 1;
+			var arrayWithNumbers2D = new Array(input);
+			var starterRow = borderOfMatrix;
+			var starterColumn = 0;
+
+			for (starterLoop = 0; starterLoop < input; starterLoop++) {  // convert array to 2D
+			    arrayWithNumbers2D[starterLoop] = new Array(input);
+			} 
+
+			//loop first params until diagonal
+			for (starterLoop = borderOfMatrix; starterLoop > 0; starterLoop--) { 
+				PrintNumbersDiagonally(starterLoop, starterColumn);
+			} 
+
+			//loop params after diagonal (include)
+			for (starterLoop = 0; starterLoop < input; starterLoop++) { 
+				PrintNumbersDiagonally(0, starterLoop);
+			} 
+
+			function PrintNumbersDiagonally(row, column) { 
+
+				// check if row is last, but colomn is not last
+				if ((row == borderOfMatrix) && (column != borderOfMatrix)) { 
+					arrayWithNumbers2D[row][column] = consecutiveNumbers;
+					consecutiveNumbers++;
+					return false;
+				} 
+
+				//check only if column is last
+				else if (column == borderOfMatrix) { 
+					arrayWithNumbers2D[row][column] = consecutiveNumbers;
+					consecutiveNumbers++;
+					return false;
+				} 
+
+				//check if row and column is NOT last
+				else if ((row < input) && (column < input)) { 
+					arrayWithNumbers2D[row][column] = consecutiveNumbers;
+					consecutiveNumbers++
+					row++;
+					column++;
+					return(PrintNumbersDiagonally(row, column));
+					//back to function
+				} 
+
+				//check only if row is NOT last
+				else if (row < input) { 
+					arrayWithNumbers2D[row][column] = consecutiveNumbers;
+					consecutiveNumbers++;
+					row++;
+					column++;
+					return(PrintNumbersDiagonally(row, column));
+				} 
+				
+			} 
+
+			PrintTable(arrayWithNumbers2D);
+
+			function PrintTable(arrayWithNumbers2D) { 
+
+				//printing array in table
+				var heading;
+				var table;
+				var indexToAddInArray = 0;
+				var rowInTable;
+				var tableRow;
+				var columnInTable
+				var tableData;
+				var color = 255;
+
+				heading = document.createElement("h1");
+				heading.innerHTML = "JS Diagonal Matrix - table view";
+
+				table = document.createElement("table");
+				table.setAttribute("border", "1");
+				table.style.borderCollapse = "collapse";
+				table.style.width = "50%";
+				table.style.textAlign = "center";
+
+				for (rowInTable = 0; rowInTable < input; rowInTable++) {
+					tableRow = document.createElement("tr");
+
+					for (columnInTable = 0; columnInTable < input; columnInTable++) { 
+
+						tableData = document.createElement("td");
+						tableData.style.backgroundColor = "rgb( "+ color +"," + color +", 255)";
+						tableData.innerHTML = arrayWithNumbers2D[rowInTable][columnInTable].toString();
+						indexToAddInArray++;
+						tableRow.appendChild(tableData);
+
+						if (color == 3) { 
+							color += 3;
+						} 
+						color -= 3;
+					}
+
+					table.appendChild(tableRow);
+				} 
+
+				document.body.appendChild(heading);
+				document.body.appendChild(table);
+			} 
+
+		</script>
+
+	</body>
+</html>

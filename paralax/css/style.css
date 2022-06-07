@@ -1,0 +1,86 @@
+﻿body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.parallax {
+    background-image: url('../image/1.jpg');
+    height: 100%; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    background-image: url('../image/2.jpg');
+    height: 100%; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3 {
+    background-image: url('../image/3.jpg');
+    height: 100%; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax4 {
+    background-image: url('../image/4.jpg');
+    height: 100%; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*#content {
+    height: auto;
+    background: rgba(100, 153, 239, 0.5) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAF0lEQVQIW2NkYGD4z8DAwMgAI0AMDA4AI3EBBCKrOnQAAAAASUVORK5CYII=");
+    font-size: 36px;
+    text-align: center;
+}*/
+
+/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+@media only screen and (max-device-width: 1024px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+    .parallax2 {
+        background-attachment: scroll;
+    }
+}
+
+h1 {
+    position: relative;
+    top: 48%;
+    left: 35%;
+    margin: 0;
+    padding: 0;
+    font-size: 2vw;
+    color: white;
+}
+
+h1:hover {
+    width: 42%;
+    padding: 2%;
+    font-size: 2.7vw;
+    left: 27%;
+    top: 42%;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; 
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgba(178, 204, 247, 0.3);
+    text-align: center;
+}

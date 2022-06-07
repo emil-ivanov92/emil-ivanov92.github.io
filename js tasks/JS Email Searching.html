@@ -1,0 +1,78 @@
+﻿<html>
+	<head>
+		<title>JS Email Searching</title>
+	</head>
+	<body>
+
+		<h1>JS Email Searchin with regular expression</h1>
+		<h3>the result will be apper in Console</h3>
+		<textarea id = "textareaID" ></textarea>
+		<button id = "btn1" onclick = "GetEmails()" title = "The result will be appear in Console">Search for emails</button>
+
+		<style type="text/css">
+
+			#btn1 { 
+				padding: 2%;
+				margin-top: 3%;
+				margin-left: 35%;
+				font-weight: bold;
+				font-size: 2vw;
+				box-shadow: 5px 5px 2.5px #888888;
+			    border: 1px solid;
+			    border-radius: 15px;
+			} 
+			#textareaID { 
+				width: 95%;
+				height: 60%;
+				margin-left: 2%;
+			} 
+
+			h1, h3 {
+				text-align: center;
+			}
+
+		</style>
+
+		<script type="text/javascript">
+
+			function GetEmails() { 
+
+				var input = document.getElementById("textareaID").value;
+				var email;
+				var arrayEmails = [];
+				var countEmails = 0;
+				var index;
+				var regExpression = /[a-z0-9](\.?[a-z0-9_-]){0,}@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}/gmi;
+				FindEmail(input);
+
+				function FindEmail(input) { 
+
+					if (input.search(regExpression) != -1) { 
+						email = input.match(regExpression);
+						arrayEmails.push(email[0]);
+						input = input.replace(email[0], "");
+						countEmails++;
+						FindEmail(input);
+					} 
+				} 
+
+				arrayEmails.sort();
+				console.log("They are " + countEmails + " email adresses (alphabetically): ");
+
+				PrintEmails(0);
+
+				function PrintEmails(index) { 
+					
+					if (index < arrayEmails.length) { 
+						console.log(arrayEmails[index].toString());
+						index++;
+						PrintEmails(index);
+					} 
+				} 
+			} 
+
+		</script>
+
+	</body>
+</html>
+
