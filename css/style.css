@@ -609,3 +609,11 @@ nav li a:hover span {
       margin: auto;
   width: 50%;
 }
+
+
+@media print {
+  h1, h2, h3, h4, p, tr, td, th {
+    color: black;
+    text-shadow: 0 0 0 #ccc;
+  }
+}
