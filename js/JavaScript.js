@@ -16,24 +16,36 @@ else
 $(document).ready(function(){
     $("#toggle").click(function(){
         $("#proba").toggle();
+        $("#proba2").hide();
+        $("#proba3").hide();
+        $("#proba4").hide();
     });
 });
 
 $(document).ready(function(){
     $("#toggle2").click(function(){
         $("#proba2").toggle();
+        $("#proba").hide();
+        $("#proba3").hide();
+        $("#proba4").hide();
     });
 });
 
 $(document).ready(function(){
     $("#toggle3").click(function(){
         $("#proba3").toggle();
+        $("#proba2").hide();
+        $("#proba").hide();
+        $("#proba4").hide();
     });
 });
 
 $(document).ready(function(){
     $("#toggle4").click(function(){
         $("#proba4").toggle();
+        $("#proba3").hide();
+        $("#proba2").hide();
+        $("#proba").hide();
     });
 });
 
@@ -81,5 +93,3 @@ var result = comment3.concat(' published by "', ime, '"', ' on "', data,'"');
     document.getElementById("myText").focus();
     document.getElementById("myText").value="";
 }
-
-
