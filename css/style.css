@@ -705,10 +705,22 @@ nav li a:hover span {
   h3,
   h4,
   p,
+  table,
+  tbody,
   tr,
   td,
-  th {
-    color: black;
+  th{
+    color: black !important;
     text-shadow: 0 0 0 #ccc;
   }
+}
+
+
+
+@media print
+{    
+    #baner, nav *
+    {
+        display: none !important;
+    }
 }
