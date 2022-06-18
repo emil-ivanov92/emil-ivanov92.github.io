@@ -5,9 +5,9 @@
 	<body>
 
 		<h1>JS Email Searchin with regular expression</h1>
-		<h3>the result will be apper in Console</h3>
+		<h3>the results will appear in the Console log too</h3>
 		<textarea id = "textareaID" ></textarea>
-		<button id = "btn1" onclick = "GetEmails()" title = "The result will be appear in Console">Search for emails</button>
+		<button id = "btn1" onclick = "GetEmails()" title = "The results will appear in the Console log too">Search for emails</button>
 
 		<style type="text/css">
 
@@ -57,6 +57,7 @@
 				} 
 
 				arrayEmails.sort();
+				alert("They are " + countEmails + " email adresses (alphabetically): ");
 				console.log("They are " + countEmails + " email adresses (alphabetically): ");
 
 				PrintEmails(0);
@@ -64,6 +65,7 @@
 				function PrintEmails(index) { 
 					
 					if (index < arrayEmails.length) { 
+						alert(arrayEmails[index].toString());
 						console.log(arrayEmails[index].toString());
 						index++;
 						PrintEmails(index);
