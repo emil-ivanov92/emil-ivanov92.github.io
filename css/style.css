@@ -13,19 +13,26 @@ html {
   background-size: cover;
 }
 
+/*#baner {
+  float: right;
+  height: 15%;
+  width: 85%;
+  margin: 1% 12% 1% 1%;
+}*/
+
 #baner {
   float: right;
   height: 15%;
-  width: 65%;
-  margin: 1% 12% 1% 1%;
+  width: 97%;
+  margin: 1% 1.5% 1% 1%;
 }
 
-#logo {
+/*#logo {
   float: left;
   margin: 1% 1% 1% 8%;
   height: 15%;
   width: 11%;
-}
+}*/
 
 head {
   margin: auto;
@@ -38,7 +45,7 @@ nav ul {
   background-color: #333;
   font-size: 2vh;
   font-size: 2vw;
-  width: 95%;
+  width: 100%;
   opacity: 0.7;
   border-radius: 1em;
 }
@@ -65,7 +72,7 @@ nav li a:hover {
 }
 
 #wowslider-container1 {
-  width: 85%;
+  width: 90%;
   height: 65%;
   overflow: hidden;
   border: none;
@@ -295,11 +302,11 @@ li a {
 
 
 div.img {
-  margin: 5px;
+  margin: 5px 5px 5px 8px;
   border: 1px solid #ccc;
   float: left;
-  width: 47%;
-  height: 55%;
+  width: 48.5%;
+  height: 60%;
   overflow: hidden;
 }
 
@@ -491,6 +498,22 @@ div.img2 img {
   font-size: 1.5vw;
   padding: 1%;
   margin: 0;
+  color: black;
+  /*text-shadow:0 0 0 black, 0 0 1px transparent;*/
+/* // text-shadow: white 1px 0 10px;*/
+/*    color: lightgrey;
+    font-size: 20px;*/
+/*text-shadow:
+        0.05em 0 black,
+        0 0.05em black,
+        -0.05em 0 black,
+        0 -0.05em black,
+        -0.05em -0.05em black,
+        -0.05em 0.05em black,
+        0.05em -0.05em black,
+        0.05em 0.05em black;*/
+
+
 }
 
 #update1 h1,
@@ -532,7 +555,7 @@ div.img2 img {
 #update2 p:hover {
   background-color: rgba(217, 221, 226, 0.3);
   border-radius: 10px;
-  font-size: 1.6vw;
+  font-size: 1.55vw;
   /*    font-weight: bold;*/
 }
 
