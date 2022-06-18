@@ -56,7 +56,7 @@ var Logic_Namespaces = {
 		for (starterLoop = 0; starterLoop < jsonFile.data.length; starterLoop++) { 
 
 			arraySkills.push(jsonFile.data[starterLoop].Skills);
-			arrayValues.push(jsonFile.data[starterLoop].Y2016);
+			arrayValues.push(jsonFile.data[starterLoop].Y2022);
 
 		} 
 

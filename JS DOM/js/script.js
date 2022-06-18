@@ -6,7 +6,7 @@
 		var starterArea = document.getElementById(idStarterDiv);
 		var starterParagraph = document.createElement("p");
 		starterParagraph.id = "para_start";
-		starterParagraph.innerHTML = "Please enter numbers like the example: 1-5";
+		starterParagraph.innerHTML = "Please enter 2 numbers separated by dash (e.g. 1-5) and check the dropdown";
 		starterArea.appendChild(starterParagraph);
 
 		var starterInput = document.createElement("input");
