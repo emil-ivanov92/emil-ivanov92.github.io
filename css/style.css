@@ -719,7 +719,7 @@ nav li a:hover span {
 
 @media print
 {    
-    #baner, nav *
+    #baner, #print, nav *
     {
         display: none !important;
     }
